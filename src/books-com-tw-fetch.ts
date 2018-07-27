@@ -57,7 +57,13 @@ const setUrlFollowParameter: Function = async (url: string, keyword: string, pag
 
 export const collectionFetch: Function = async (url: string, keyword: string = null, page: number = null): Promise<IFetchResult> => {
   const fullUrl: string = await setUrlFollowParameter(url, keyword, page);
-  const data: string = await fetchFullHtmlCode(fullUrl);
+
+  let data: string;
+  try {
+    data = await fetchFullHtmlCode(fullUrl);
+  } catch (error) {
+    data = null;
+  }
 
   return { data: data, url: fullUrl };
 };

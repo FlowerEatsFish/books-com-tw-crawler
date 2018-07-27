@@ -6,7 +6,8 @@
 import bookCollection from './index';
 
 const keywordList: string[] = [
-  '相對論，愛因斯坦教會我們什麼'
+  '相對論，愛因斯坦教會我們什麼',
+  'blablablablablablablablablablablabla'
 ];
 
 const demo: Function = async (): Promise<void> => {
