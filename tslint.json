@@ -1,0 +1,14 @@
+{
+  "extends": "tslint-microsoft-contrib",
+  "rules": {
+    "export-name": false,
+    "max-line-length": false,
+    "no-console": {
+      "severity": "warning"
+    },
+    "no-http-string": false,
+    "no-implicit-dependencies": false,
+    "no-relative-imports": false,
+    "no-unnecessary-callback-wrapper": false
+  }
+}

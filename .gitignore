@@ -1,3 +1,7 @@
+# This project
+/dist/*
+package-lock.json
+
 # Logs
 logs
 *.log

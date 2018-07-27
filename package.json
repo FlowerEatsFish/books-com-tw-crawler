@@ -1,0 +1,39 @@
+{
+  "name": "api.books-com-tw",
+  "version": "1.0.0",
+  "description": "Unofficial books.com.tw API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./dist/demo.js",
+    "build": "tsc -p ./tsconfig.json",
+    "build:dev": "webpack",
+    "build:prod": "webpack --config webpack.config.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FlowerEatFish/api.books-com-tw.git"
+  },
+  "keywords": [
+    "api",
+    "typescript",
+    "web-crawler"
+  ],
+  "author": "FlowerEatFish",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FlowerEatFish/api.books-com-tw/issues"
+  },
+  "homepage": "https://github.com/FlowerEatFish/api.books-com-tw#readme",
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "ts-loader": "^4.4.2",
+    "tslint": "^5.10.0",
+    "tslint-microsoft-contrib": "^5.0.3",
+    "typescript": "^2.9.2",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "webpack": "^4.14.0",
+    "webpack-cli": "^3.0.8"
+  }
+}
