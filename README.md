@@ -64,7 +64,7 @@
     keyword, // string. Necessary.
              //If you configs it as null, it will get an error.
     page, // number. Positive integer. Default: 1.
-          // Every page only shows maximum 12 results.
+          // Every page only shows maximum 20 results.
   )
   ```
 
