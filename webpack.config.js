@@ -5,13 +5,13 @@ const packageInfo = require('./package.json');
 module.exports = {
   mode: 'development',
   entry: {
-    'book-com-tw-collection': './src/index.ts',
+    'books-com-tw-collection': './src/index.ts',
   },
   output: {
     path: path.join(__dirname, '/dist'),
     publicPath: 'dist/',
     filename: './[name].development.js',
-    library: 'book-com-tw-collection',
+    library: 'books-com-tw-collection',
     libraryTarget: 'umd'
   },
   module: {
