@@ -69,10 +69,15 @@ const getItemImageUrl: Function = (htmlCode: string): string => {
 const getItemAuthor: Function = async (htmlCode: string): Promise<string[]> => {
   try {
     const result: string[] = htmlCode.match(/<a rel="go_author"[\w\W]*?>[\w\W]*?<\/a>/gi);
-    // tslint:disable-next-line:no-unnecessary-local-variable
-    const resultWithoutHtmlTag: string[] = await Promise.all(result.map((value: string) => removeAllHtmlTag(value)));
 
-    return resultWithoutHtmlTag;
+    if (result.length > 0) {
+      // tslint:disable-next-line:no-unnecessary-local-variable
+      const resultWithoutHtmlTag: string[] = await Promise.all(result.map((value: string) => removeAllHtmlTag(value)));
+
+      return resultWithoutHtmlTag;
+    }
+
+    return null;
   } catch (error) {
     return null;
   }
