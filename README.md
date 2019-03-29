@@ -12,8 +12,8 @@
 
   ```shell
   # To download the files and install packages.
-  $ git clone https://github.com/FlowerEatFish/api.books-com-tw.git
-  $ cd api.books-com-tw
+  $ git clone https://github.com/FlowerEatFish/books-com-tw-api.git
+  $ cd books-com-tw-api
   $ npm install
 
   # To run a demo.
@@ -58,9 +58,9 @@
 ### Input parameters you want to search for information
 
   ```js
-  import BooksComTwCollection from 'books-com-tw-collection.development'; // Here uses development mode as an example
+  import BooksComTwCollectionApi from 'books-com-tw-collection-api.development'; // Here uses development mode as an example
 
-  const result = BooksComTwCollection(
+  const result = BooksComTwCollectionApi(
     keyword, // string. Necessary.
              //If you configs it as null, it will get an error.
     page, // number. Positive integer. Default: 1.

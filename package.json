@@ -1,5 +1,5 @@
 {
-  "name": "api.books-com-tw",
+  "name": "books-com-tw-api",
   "version": "1.0.0",
   "description": "Unofficial books.com.tw API",
   "main": "index.js",
@@ -11,19 +11,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FlowerEatFish/api.books-com-tw.git"
+    "url": "git+https://github.com/FlowerEatFish/books-com-tw-api.git"
   },
   "keywords": [
     "api",
     "typescript",
     "web-crawler"
   ],
-  "author": "FlowerEatFish",
+  "author": "Eating-Fish Flower",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/FlowerEatFish/api.books-com-tw/issues"
+    "url": "https://github.com/FlowerEatFish/books-com-tw-api/issues"
   },
-  "homepage": "https://github.com/FlowerEatFish/api.books-com-tw#readme",
+  "homepage": "https://github.com/FlowerEatFish/books-com-tw-api#readme",
   "dependencies": {
     "axios": "^0.18.0"
   },
