@@ -13,7 +13,7 @@ const commonConfig = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: process.env.NODE_ENV === PRODUCTION ? './[name].min.js' : './[name].development.js',
+    filename: process.env.NODE_ENV === PRODUCTION ? './[name].min.js' : './[name].js',
     library: 'books-com-tw-collection-api',
     libraryTarget: 'umd'
   },

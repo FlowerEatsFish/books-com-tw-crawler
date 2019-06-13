@@ -17,7 +17,6 @@
   $ npm install
 
   # To run a demo.
-  $ npm run build
   $ npm start
   ```
 

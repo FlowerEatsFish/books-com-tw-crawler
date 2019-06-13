@@ -14,7 +14,7 @@
     // "declarationMap": true,
     "sourceMap": false,
     // "outFile": "./",
-    "outDir": "./dist/",
+    "outDir": "./lib/",
     // "rootDir": "./",
     // "composite": true,
     // "removeComments": true,
