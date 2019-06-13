@@ -1,16 +1,69 @@
 {
   "compilerOptions": {
-    "lib": ["es5", "es2015", "dom", "scripthost"],
-    "baseUrl": ".",
-    "paths": {
-      "*": ["src/*"]
-    },
-    "module": "commonjs",
-    "noImplicitAny": false,
-    "outDir": "./dist/",
+    /* Basic Options */
+    "target": "es5",
+    "lib": [
+      "es2015",
+      "dom",
+    ],
+    // "lib": [],
+    // "allowJs": true,
+    // "checkJs": true,
+    // "jsx": "preserve",
+    // "declaration": true,
+    // "declarationMap": true,
     "sourceMap": false,
-    "target": "es2015"
+    // "outFile": "./",
+    "outDir": "./dist/",
+    // "rootDir": "./",
+    // "composite": true,
+    // "removeComments": true,
+    // "noEmit": true,
+    // "importHelpers": true,
+    // "downlevelIteration": true,
+    // "isolatedModules": true,
+
+    /* Strict Type-Checking Options */
+    "strict": true,
+    // "noImplicitAny": true,
+    // "strictNullChecks": true,
+    // "strictFunctionTypes": true,
+    // "strictBindCallApply": true,
+    // "strictPropertyInitialization": true,
+    // "noImplicitThis": true,
+    // "alwaysStrict": true,
+
+    /* Additional Checks */
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noImplicitReturns": true,
+    // "noFallthroughCasesInSwitch": true,
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    // "paths": {},
+    // "rootDirs": [],
+    // "typeRoots": [],
+    // "types": [],
+    // "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    // "preserveSymlinks": true,
+
+    /* Source Map Options */
+    // "sourceRoot": "",
+    // "mapRoot": "",
+    // "inlineSourceMap": true,
+    // "inlineSources": true,
+
+    /* Experimental Options */
+    // "experimentalDecorators": true,
+    // "emitDecoratorMetadata": true,
   },
-  "exclude": ["node_modules"],
-  "include": ["src/**/*"],
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "src/**/*"
+  ],
 }

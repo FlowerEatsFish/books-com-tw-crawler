@@ -27,13 +27,13 @@ const removeAllHtmlTag: Function = (text: string): string => {
   return result;
 };
 
-const setItemWithTag: Function = (text: string, tag: string): number => {
+const setItemWithTag: Function = (text: string, tag: string): number | null => {
   try {
     if (text.includes(tag)) {
       const newRegExp: RegExp = new RegExp(`<strong>\\s*<b>\\d+<\\/b>\\s*${tag}<\\/strong>`, 'gi');
-      const result: string = text.match(newRegExp)[0];
+      const result: string[] | null = text.match(newRegExp);
 
-      return Number(result.replace(/\D/gi, ''));
+      return result ? Number(result[0].replace(/\D/gi, '')) : null;
     }
 
     return null;
@@ -42,37 +42,44 @@ const setItemWithTag: Function = (text: string, tag: string): number => {
   }
 };
 
-const getItemPrice: Function = (htmlCode: string): IPriceType => {
+const getItemPrice: Function = (htmlCode: string): IPriceType | null => {
   try {
-    const result: string = htmlCode.match(/<span class="price">[\w\W]*?<\/span>/gi)[0];
+    const result: string[] | null = htmlCode.match(/<span class="price">[\w\W]*?<\/span>/gi);
 
-    return {
-      discount: setItemWithTag(result, '折'),
-      currentPrice: setItemWithTag(result, '元')
-    };
+    if (result) {
+      return {
+        discount: setItemWithTag(result, '折'),
+        currentPrice: setItemWithTag(result, '元')
+      };
+    }
+
+    return null;
   } catch (error) {
     return null;
   }
 };
 
-const getItemImageUrl: Function = (htmlCode: string): string => {
+const getItemImageUrl: Function = (htmlCode: string): string | null => {
   try {
-    let result: string = htmlCode.match(/<img [\w\W]*?>/gi)[0];
-    result = result.match(/data-original="[\w\W]*?"/gi)[0];
+    let result: string[] | null = htmlCode.match(/<img [\w\W]*?>/gi);
 
-    return result.replace(/data-original="https:\/\/im1\.book\.com\.tw\/image\/getImage\?i=([\w\W]*?)&[\w\W]*/gi, '$1');
+    if (result) {
+      result = result[0].match(/data-original="[\w\W]*?"/gi);
+    }
+
+    return result
+      ? result[0].replace(/data-original="https:\/\/im1\.book\.com\.tw\/image\/getImage\?i=([\w\W]*?)&[\w\W]*/gi, '$1') : null;
   } catch (error) {
     return null;
   }
 };
 
-const getItemAuthor: Function = async (htmlCode: string): Promise<string[]> => {
+const getItemAuthor: Function = async (htmlCode: string): Promise<string[] | null> => {
   try {
-    const result: string[] = htmlCode.match(/<a rel="go_author"[\w\W]*?>[\w\W]*?<\/a>/gi);
+    const result: string[] | null = htmlCode.match(/<a rel="go_author"[\w\W]*?>[\w\W]*?<\/a>/gi);
 
-    if (result.length > 0) {
-      // tslint:disable-next-line:no-unnecessary-local-variable
-      const resultWithoutHtmlTag: string[] = await Promise.all(result.map((value: string) => removeAllHtmlTag(value)));
+    if (result && result.length > 0) {
+      const resultWithoutHtmlTag: string[] = await Promise.all(result.map((value: string): string => removeAllHtmlTag(value)));
 
       return resultWithoutHtmlTag;
     }
@@ -83,62 +90,67 @@ const getItemAuthor: Function = async (htmlCode: string): Promise<string[]> => {
   }
 };
 
-const getItemPublisher: Function = (htmlCode: string): string => {
+const getItemPublisher: Function = (htmlCode: string): string | null => {
   try {
-    let result: string;
+    let result: string[] | null;
     if (htmlCode.includes('target="_blank" rel="mid_publish"')) {
       // For Chinese books
-      result = htmlCode.match(/<a target="_blank" rel="mid_publish"[\w\W]*?>[\w\W]*?<\/a>/gi)[0];
+      result = htmlCode.match(/<a target="_blank" rel="mid_publish"[\w\W]*?>[\w\W]*?<\/a>/gi);
     } else {
       // For Western books
-      result = htmlCode.match(/<a rel="mid_publish"[\w\W]*?>[\w\W]*?<\/a>/gi)[0];
+      result = htmlCode.match(/<a rel="mid_publish"[\w\W]*?>[\w\W]*?<\/a>/gi);
     }
 
-    return removeAllHtmlTag(result);
+    return result ? removeAllHtmlTag(result[0]) : null;
   } catch (error) {
     return null;
   }
 };
 
-const getItemPublicationDate: Function = (htmlCode: string): string => {
+const getItemPublicationDate: Function = (htmlCode: string): string | null => {
   try {
-    const result: string = htmlCode.match(/出版日期: \d{4}-\d{2}-\d{2}/)[0];
+    const result: string[] | null = htmlCode.match(/出版日期: \d{4}-\d{2}-\d{2}/);
 
-    return result.replace('出版日期: ', '');
+    return result ? result[0].replace('出版日期: ', '') : null;
   } catch (error) {
     return null;
   }
 };
 
-const getItemUrl: Function = (htmlCode: string): string => {
+const getItemUrl: Function = (htmlCode: string): string | null => {
   try {
-    let result: string = htmlCode.match(/<h3>[\w\W]*?<\/h3>/gi)[0];
-    result = result.match(/<a [\w\W]*?<\/a>/gi)[0];
-    result = result.replace(/<a [\w\W]*?href="([\w\W]*?)"[\w\W]*/gi, 'http:$1');
+    let result: string[] | null = htmlCode.match(/<h3>[\w\W]*?<\/h3>/gi);
+    if (result) {
+      result = result[0].match(/<a [\w\W]*?<\/a>/gi);
+    }
 
-    return result;
+    return result ? result[0].replace(/<a [\w\W]*?href="([\w\W]*?)"[\w\W]*/gi, 'http:$1') : null;
   } catch (error) {
     return null;
   }
 };
 
-const getItemTitle: Function = (htmlCode: string): string => {
+const getItemTitle: Function = (htmlCode: string): string | null => {
   try {
-    const result: string = htmlCode.match(/<h3>[\w\W]*?<\/h3>/gi)[0];
+    const result: string[] | null = htmlCode.match(/<h3>[\w\W]*?<\/h3>/gi);
 
-    return removeAllHtmlTag(result);
+    return result ? removeAllHtmlTag(result[0]) : null;
   } catch (error) {
     return null;
   }
 };
 
-const getItemIntroduction: Function = (htmlCode: string): string => {
+const getItemIntroduction: Function = (htmlCode: string): string | null => {
   try {
-    let result: string = htmlCode.match(/<p>[\w\W]*?<\/p>/gi)[0];
-    // To remove useless texts like "更多資訊"
-    result = result.replace(/<span>[\w\W]*?<\/span>/gi, '');
+    const result: string[] | null = htmlCode.match(/<p>[\w\W]*?<\/p>/gi);
 
-    return removeAllHtmlTag(result);
+    if (result) {
+      // To remove useless texts like "更多資訊"
+      const filterResult = result[0].replace(/<span>[\w\W]*?<\/span>/gi, '');
+
+      return removeAllHtmlTag(filterResult);
+    }
+    return null;
   } catch (error) {
     return null;
   }
@@ -159,9 +171,13 @@ const getItem: Function = async (htmlCode: string): Promise<IItemType> => {
   };
 };
 
-const splitHtmlCode: Function = (htmlCode: string): string[] => htmlCode.match(/<li class="item">[\w\W]*?<\/li>/gi);
+const splitHtmlCode: Function = (htmlCode: string): string[] | null => htmlCode.match(/<li class="item">[\w\W]*?<\/li>/gi);
 
-const getSpecificHtmlCode: Function = (htmlCode: string): string => htmlCode.match(/<ul class="searchbook">[\w\W]*?<\/ul>/gi)[0];
+const getSpecificHtmlCode: Function = (htmlCode: string): string | null => {
+  const result = htmlCode.match(/<ul class="searchbook">[\w\W]*?<\/ul>/gi);
+
+  return result ? result[0] : null;
+};
 
 export const itemListParser: Function = async (htmlCode: string): Promise<IItemType[]> => {
   // To get specific html code containing data
@@ -170,8 +186,7 @@ export const itemListParser: Function = async (htmlCode: string): Promise<IItemT
   const itemListWithCode: string[] = await splitHtmlCode(targetHtmlCode);
   if (itemListWithCode.length > 0) {
     // To build up data we want
-    // tslint:disable-next-line:no-unnecessary-local-variable
-    const itemList: IItemType[] = await Promise.all(itemListWithCode.map((value: string) => getItem(value)));
+    const itemList: IItemType[] = await Promise.all(itemListWithCode.map((value: string): IItemType => getItem(value)));
 
     return itemList;
   }

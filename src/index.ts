@@ -5,7 +5,7 @@
 import { collectionFetch, IFetchResult } from './books-com-tw-fetch';
 import { IItemType, itemListParser } from './item-list-parser';
 
-const bookCollection: Function = async (keyword: string, page: number = 1): Promise<object> => {
+const bookCollection: Function = async (keyword: string, page: number = 1): Promise<object | null> => {
   const htmlCodeAfterFetch: IFetchResult = await collectionFetch(null, keyword, page);
   // To check where the HTML code is from and do next step
   console.log(`>>> You search data using ${htmlCodeAfterFetch.url}`);
@@ -31,5 +31,4 @@ const bookCollection: Function = async (keyword: string, page: number = 1): Prom
   return null;
 };
 
-// tslint:disable-next-line:no-default-export
 export default bookCollection;

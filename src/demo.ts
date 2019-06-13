@@ -2,7 +2,6 @@
  * Demo
  */
 
-// tslint:disable-next-line:import-name
 import bookCollection from './index';
 
 const keywordList: string[] = [
