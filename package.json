@@ -6,8 +6,8 @@
   "scripts": {
     "start": "ts-node ./src/demo.ts",
     "build": "tsc -p ./tsconfig.json",
-    "build:dev": "webpack",
-    "build:prod": "webpack --config webpack.config.prod.js",
+    "build:dev": "cross-env NODE_ENV=development webpack",
+    "build:prod": "cross-env NODE_ENV=production webpack",
     "lint": "eslint . -f stylish --ext .js --ext .ts",
     "lint:fix": "eslint . -f stylish --ext .js --ext .ts --fix"
   },
@@ -32,6 +32,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^1.6.0",
     "@typescript-eslint/parser": "^1.6.0",
+    "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
     "eslint-config-standard-with-typescript": "^7.0.0",
     "eslint-plugin-import": "^2.16.0",
