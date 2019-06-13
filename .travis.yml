@@ -1,0 +1,24 @@
+language: node_js
+
+node_js:
+  - 6
+  - 8
+  - 10
+
+os:
+  - linux
+  - osx
+
+branches:
+  only:
+    - master
+    - develop
+
+notifications:
+  email: false
+
+script:
+  - npm run lint
+  - npm run build
+  - npm run build:dev
+  - npm run build:prod
