@@ -18,7 +18,11 @@ notifications:
   email: false
 
 script:
+  - npm install codecov -g
   - npm run lint
   - npm run build
   - npm run build:dev
   - npm run build:prod
+
+after_success:
+  - codecov

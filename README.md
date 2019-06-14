@@ -2,6 +2,7 @@
 
 [![Travis-CI status](https://travis-ci.com/FlowerEatFish/books-com-tw-api.svg?branch=master)](https://travis-ci.com/FlowerEatFish/books-com-tw-api/builds)
 [![AppVeyor status](https://ci.appveyor.com/api/projects/status/tg20it4v5621vv3y/branch/master?svg=true)](https://ci.appveyor.com/project/FlowerEatFish/books-com-tw-api/history)
+[![Codecov status](https://codecov.io/gh/FlowerEatFish/books-com-tw-api/branch/master/graph/badge.svg)](https://codecov.io/gh/FlowerEatFish/books-com-tw-api/commits)
 [![Dependencies status](https://david-dm.org/FlowerEatFish/books-com-tw-api/status.svg)](https://david-dm.org/FlowerEatFish/books-com-tw-api)
 [![Code style](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
