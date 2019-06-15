@@ -83,7 +83,7 @@ $ npm start
     publisher: '臉譜',
     publicationDate: '2016-02-27',
     imageUrl: 'https://www.books.com.tw/img/001/070/67/0010706739.jpg',
-    price: { discount: null, currentPrice: null },
+    price: { discount: 7, currentPrice: 252 },
     introduction: '， 在日本已分享了許多對於簡單生活的想法和實行秘訣， ' +
       '尤其在飲食方面，更提出許多同時注重美味、美感和健康的料理，因此廣受大眾歡迎。 在出版過許多料理食譜書後，她認為， ' +
       '使用春、夏、秋、冬的當令食材，搭配鑄鐵鍋，最能引出食材的天然風味......'

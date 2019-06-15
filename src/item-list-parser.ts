@@ -48,8 +48,8 @@ const getItemPrice: Function = (htmlCode: string): IPriceType | null => {
 
     if (result) {
       return {
-        discount: setItemWithTag(result, '折'),
-        currentPrice: setItemWithTag(result, '元')
+        discount: setItemWithTag(result[0], '折'),
+        currentPrice: setItemWithTag(result[0], '元')
       };
     }
 
