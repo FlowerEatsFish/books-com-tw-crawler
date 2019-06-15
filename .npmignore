@@ -1,7 +1,6 @@
 # directories
 coverage/
 dist/
-lib/
 test/
 
 # hidden configs
