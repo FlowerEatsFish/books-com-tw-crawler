@@ -10,11 +10,11 @@ describe('Run demo', (): void => {
     expect(result.length).toBe(1);
   }, timeout);
 
-  it('Should get results as Array and no more than 12', async (): Promise<void> => {
+  it('Should get results as Array and no more than 20', async (): Promise<void> => {
     const result: object[] = await booksComTwCollection('相對論，愛因斯坦教會我們什麼');
 
     expect(Array.isArray(result)).toBeTruthy();
-    expect(result.length).toBeLessThanOrEqual(12);
+    expect(result.length).toBeLessThanOrEqual(20);
   }, timeout);
 
   it('Should do not have any result as Null', async (): Promise<void> => {
