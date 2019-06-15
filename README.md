@@ -8,6 +8,8 @@
 [![Code style](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+非官方博客來網路書店 API
+
 - [Unofficial Books-com-tw Collection API](#unofficial-books-com-tw-collection-api)
   - [Requirement](#requirement)
   - [Installation](#installation)
@@ -23,7 +25,7 @@
 
 ## Requirement
 
-This construct uses [Axios.js](https://github.com/axios/axios), so you need to care the Cross-Origin Requests (CORS).
+This construct uses [Axios.js](https://github.com/axios/axios), so you need to care about Cross-Origin Requests (CORS).
 
 ## Installation
 

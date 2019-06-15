@@ -1,6 +1,6 @@
 {
   "name": "@flowereatfish/books-com-tw-api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Unofficial books.com.tw API",
   "main": "index.js",
   "typings": "index.d.ts",
