@@ -23,6 +23,7 @@ script:
   - npm run build
   - npm run build:dev
   - npm run build:prod
+  - npm test
 
 after_success:
   - codecov
