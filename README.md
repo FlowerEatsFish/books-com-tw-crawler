@@ -96,7 +96,7 @@ $ npm start
 ```shell
 >>> You search data using keyword "相對論，愛因斯坦教會我們什麼".
 
-[ {...}, {...}, ... ] # Array.length <= 20
+[ {...}, {...}, ... ] # Array.prototype.length <= 20
 ```
 
 ```shell
@@ -114,7 +114,7 @@ import booksComTwCollectionApi from '@flowereatfish/books-com-tw-api';
 
 const result = booksComTwCollectionApi(
   keyword, // string. Necessary.
-            //If you configs it as null, it will get an error.
+           // If you configs it as null, it will get an error.
   page, // number. Positive integer. Default: 1.
         // Every page only shows maximum 20 results.
 )
