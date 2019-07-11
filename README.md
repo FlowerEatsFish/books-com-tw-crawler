@@ -10,18 +10,18 @@
 
 非官方博客來網路書店 API
 
-- [Unofficial Books-com-tw Collection API](#unofficial-books-com-tw-collection-api)
-  - [Requirement](#requirement)
-  - [Installation](#installation)
-  - [Usage](#usage)
-    - [Node.js version 8 or higher (with full Async/Await support)](#nodejs-version-8-or-higher-with-full-asyncawait-support)
-    - [Others](#others)
-  - [Demo](#demo)
-    - [Commands](#commands)
-    - [Results](#results)
-  - [API documentation](#api-documentation)
-    - [Input parameters](#input-parameters)
-    - [Output results](#output-results)
+- [Unofficial Books-com-tw Collection API](#Unofficial-Books-com-tw-Collection-API)
+  - [Requirement](#Requirement)
+  - [Installation](#Installation)
+  - [Usage](#Usage)
+    - [Node.js version 8 or higher (with full Async/Await support)](#Nodejs-version-8-or-higher-with-full-AsyncAwait-support)
+    - [Others](#Others)
+  - [Demo](#Demo)
+    - [Commands](#Commands)
+    - [Results](#Results)
+  - [API documentation](#API-documentation)
+    - [Input parameters](#Input-parameters)
+    - [Output results](#Output-results)
 
 ## Requirement
 
