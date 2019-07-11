@@ -2,21 +2,7 @@
  * To parse the results when the fetcher got one or more data.
  */
 
-export interface IPriceType {
-  discount: number;
-  currentPrice: number;
-}
-
-export interface IItemType {
-  title: string;
-  url: string;
-  author: string[];
-  publisher: string;
-  publicationDate: string;
-  imageUrl: string;
-  price: IPriceType;
-  introduction: string;
-}
+import { DetailType, PriceField } from '../index';
 
 const removeAllHtmlTag: Function = (text: string): string => {
   let result: string = text.replace(/<\/?\w+[^>]*>/gi, '');
@@ -42,7 +28,7 @@ const setItemWithTag: Function = (text: string, tag: string): number | null => {
   }
 };
 
-const getItemPrice: Function = (htmlCode: string): IPriceType | null => {
+const getItemPrice: Function = (htmlCode: string): PriceField | null => {
   try {
     const result: string[] | null = htmlCode.match(/<span class="price">[\w\W]*?<\/span>/gi);
 
@@ -156,7 +142,7 @@ const getItemIntroduction: Function = (htmlCode: string): string | null => {
   }
 };
 
-const getItem: Function = async (htmlCode: string): Promise<IItemType> => {
+const getItem: Function = async (htmlCode: string): Promise<DetailType> => {
   const author: string[] = await getItemAuthor(htmlCode);
 
   return {
@@ -179,14 +165,14 @@ const getSpecificHtmlCode: Function = (htmlCode: string): string | null => {
   return result ? result[0] : null;
 };
 
-export const itemListParser: Function = async (htmlCode: string): Promise<IItemType[]> => {
+export const itemListParser: Function = async (htmlCode: string): Promise<DetailType[]> => {
   // To get specific html code containing data
   const targetHtmlCode: string = await getSpecificHtmlCode(htmlCode);
   // To split code from string into array by special tag
   const itemListWithCode: string[] = await splitHtmlCode(targetHtmlCode);
   if (itemListWithCode.length > 0) {
     // To build up data we want
-    const itemList: IItemType[] = await Promise.all(itemListWithCode.map((value: string): IItemType => getItem(value)));
+    const itemList: DetailType[] = await Promise.all(itemListWithCode.map((value: string): DetailType => getItem(value)));
 
     return itemList;
   }
