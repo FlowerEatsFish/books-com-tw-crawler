@@ -5,7 +5,7 @@
 [![AppVeyor status](https://ci.appveyor.com/api/projects/status/tg20it4v5621vv3y/branch/master?svg=true)](https://ci.appveyor.com/project/FlowerEatFish/books-com-tw-api/history)
 [![Codecov status](https://codecov.io/gh/FlowerEatFish/books-com-tw-api/branch/master/graph/badge.svg)](https://codecov.io/gh/FlowerEatFish/books-com-tw-api/commits)
 [![Dependencies status](https://david-dm.org/FlowerEatFish/books-com-tw-api/status.svg)](https://david-dm.org/FlowerEatFish/books-com-tw-api)
-[![Code style](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io/)
 [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 非官方博客來網路書店 API
@@ -126,7 +126,7 @@ const result = booksComTwCollectionApi(
 // If you get one or more result(s), it will return an "array".
 result = [
   {
-    title: string,
+    title: string or null,
     author: string[] or null,
     publisher: string or null,
     publicationDate: string or null,
@@ -136,7 +136,7 @@ result = [
       discount: number or null,
       currentPrice: number or null
     },
-    url: string
+    url: string | null
   },
   { ... }, { ... }, ...
 ];

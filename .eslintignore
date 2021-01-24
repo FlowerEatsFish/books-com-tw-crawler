@@ -1,3 +1,5 @@
+node_modules/
 dist/
 lib/
-node_modules/
+*.config.js
+index.js

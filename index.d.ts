@@ -4,18 +4,20 @@ export interface PriceField {
 }
 
 export interface DetailType {
-  title: string;
+  title: string | null;
   author: string[] | null;
   publisher: string | null;
   publicationDate: string | null;
   imageUrl: string | null;
   introduction: string | null;
   price: PriceField;
-  url: string;
+  url: string | null;
 }
 
-export type BooksComTwCollectionFunction =
-  (keyword: string, page?: number) => Promise<DetailType[] | null>;
+export type BooksComTwCollectionFunction = (
+  keyword: string,
+  page?: number,
+) => Promise<DetailType[] | null>;
 
 declare const booksComTwCollectionApi: BooksComTwCollectionFunction;
 
