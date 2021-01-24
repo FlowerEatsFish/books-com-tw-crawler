@@ -186,6 +186,8 @@ export const itemListParser = async (htmlCode: string): Promise<DetailType[]> =>
   if (!Array.isArray(itemListWithCode) || itemListWithCode.length === 0) return [];
 
   // To build up data we want
-  const itemList: DetailType[] = itemListWithCode.map((value: string): DetailType => getItem(value));
+  const itemList: DetailType[] = itemListWithCode.map(
+    (value: string): DetailType => getItem(value),
+  );
   return itemList;
 };
