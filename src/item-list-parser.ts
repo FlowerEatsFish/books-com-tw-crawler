@@ -183,7 +183,7 @@ export const itemListParser = async (htmlCode: string): Promise<DetailType[]> =>
 
   // To split code from string into array by special tag
   const itemListWithCode: string[] | null = splitHtmlCode(targetHtmlCode);
-  if (!Array.isArray(itemListWithCode) || itemListWithCode.length > 0) return [];
+  if (!Array.isArray(itemListWithCode) || itemListWithCode.length === 0) return [];
 
   // To build up data we want
   const itemList: DetailType[] = await Promise.all(
