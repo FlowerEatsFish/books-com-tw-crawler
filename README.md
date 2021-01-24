@@ -1,15 +1,15 @@
-# Unofficial Books-com-tw Collection API
+# Books-com-tw Crawler
 
-[![NPM version](https://img.shields.io/npm/v/@flowereatfish/books-com-tw-api.svg)](https://www.npmjs.com/package/@flowereatfish/books-com-tw-api)
-[![Actions status](https://github.com/FlowerEatsFish/books-com-tw-api/workflows/build/badge.svg?branch=master)](https://github.com/FlowerEatsFish/books-com-tw-api/actions)
-[![Codecov status](https://codecov.io/gh/FlowerEatsFish/books-com-tw-api/branch/master/graph/badge.svg)](https://codecov.io/gh/FlowerEatsFish/books-com-tw-api/commits)
-[![Dependencies status](https://github.com/FlowerEatsFish/books-com-tw-api/workflows/dependencies-status/badge.svg?branch=master)](https://github.com/FlowerEatsFish/books-com-tw-api/actions)
+[![NPM version](https://img.shields.io/npm/v/books-com-tw-crawler.svg)](https://www.npmjs.com/package/books-com-tw-crawler)
+[![Actions status](https://github.com/FlowerEatsFish/books-com-tw-crawler/workflows/build/badge.svg?branch=master)](https://github.com/FlowerEatsFish/books-com-tw-crawler/actions)
+[![Codecov status](https://codecov.io/gh/FlowerEatsFish/books-com-tw-crawler/branch/master/graph/badge.svg)](https://codecov.io/gh/FlowerEatsFish/books-com-tw-crawler/commits)
+[![Dependencies status](https://github.com/FlowerEatsFish/books-com-tw-crawler/workflows/dependencies-status/badge.svg?branch=master)](https://github.com/FlowerEatsFish/books-com-tw-crawler/actions)
 [![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io/)
 [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-非官方博客來網路書店 API
+博客來資料爬蟲
 
-- [Unofficial Books-com-tw Collection API](#Unofficial-Books-com-tw-Collection-API)
+- [Books-com-tw Crawler](#Books-com-tw-Crawler)
   - [Requirement](#Requirement)
   - [Installation](#Installation)
   - [Usage](#Usage)
@@ -24,12 +24,12 @@
 
 ## Requirement
 
-This construct uses [Axios.js](https://github.com/axios/axios), so you need to care about Cross-Origin Requests (CORS).
+- This construct uses XHR such as [Axios.js](https://github.com/axios/axios), so you need to care about the Cross-Origin Requests (CORS) and [mixed content](https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content) if you use this construct in web browsers rather than Node.js.
 
 ## Installation
 
 ```shell
-npm install @flowereatfish/books-com-tw-api --save
+npm install books-com-tw-crawler --save
 ```
 
 ## Usage
@@ -37,10 +37,10 @@ npm install @flowereatfish/books-com-tw-api --save
 ### Node.js version 8 or higher (with full Async/Await support)
 
 ```javascript
-const booksComTwCollectionApi = require('@flowereatfish/books-com-tw-api');
+const booksComTwCrawler = require('books-com-tw-crawler');
 
 const run = async () => {
-  const results = await booksComTwCollectionApi('橡皮擦計畫');
+  const results = await booksComTwCrawler('橡皮擦計畫');
   console.log(results);
 };
 
@@ -50,9 +50,9 @@ run();
 ### Others
 
 ```javascript
-const booksComTwCollectionApi = require('@flowereatfish/books-com-tw-api');
+const booksComTwCrawler = require('books-com-tw-crawler');
 
-booksComTwCollectionApi('橡皮擦計畫')
+booksComTwCrawler('橡皮擦計畫')
   .then(results => console.log(results));
 ```
 
@@ -62,8 +62,8 @@ booksComTwCollectionApi('橡皮擦計畫')
 
 ```shell
 # To download the files and install packages.
-$ git clone https://github.com/FlowerEatsFish/books-com-tw-api.git
-$ cd books-com-tw-api
+$ git clone https://github.com/FlowerEatsFish/books-com-tw-crawler.git
+$ cd books-com-tw-crawler
 $ npm install
 
 # To run a demo.
@@ -109,9 +109,9 @@ null
 ### Input parameters
 
 ```javascript
-import booksComTwCollectionApi from '@flowereatfish/books-com-tw-api';
+import booksComTwCrawler from 'books-com-tw-crawler';
 
-const result = booksComTwCollectionApi(
+const result = booksComTwCrawler(
   keyword, // string. Necessary.
            // If you set it as null, it will get an error.
   page, // number. Positive integer. Default: 1.

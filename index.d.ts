@@ -19,6 +19,6 @@ export type BooksComTwCollectionFunction = (
   page?: number,
 ) => Promise<DetailType[] | null>;
 
-declare const booksComTwCollectionApi: BooksComTwCollectionFunction;
+declare const booksComTwCrawler: BooksComTwCollectionFunction;
 
-export default booksComTwCollectionApi;
+export default booksComTwCrawler;

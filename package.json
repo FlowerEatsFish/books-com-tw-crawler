@@ -1,7 +1,7 @@
 {
-  "name": "@flowereatfish/books-com-tw-api",
+  "name": "books-com-tw-crawler",
   "version": "1.0.5",
-  "description": "Unofficial books.com.tw API",
+  "description": "books.com.tw crawler",
   "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {
@@ -15,12 +15,11 @@
     "lint:fix": "eslint . -f stylish --ext .js --ext .ts --fix",
     "test": "jest --coverage --silent"
   },
-  "repository": "git@github.com:FlowerEatsFish/books-com-tw-api.git",
+  "repository": "git@github.com:FlowerEatsFish/books-com-tw-crawler.git",
   "author": "Eating-Fish Flower",
   "license": "MIT",
   "private": false,
   "keywords": [
-    "api",
     "web-crawler"
   ],
   "dependencies": {

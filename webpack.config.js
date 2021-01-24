@@ -9,12 +9,12 @@ const PRODUCTION = "production";
 const commonConfig = {
   mode: process.env.NODE_ENV,
   entry: {
-    "books-com-tw-collection-api": "./src/index.ts"
+    "books-com-tw-crawler": "./src/index.ts"
   },
   output: {
     path: path.join(__dirname, "dist"),
     filename: process.env.NODE_ENV === PRODUCTION ? "./[name].min.js" : "./[name].js",
-    library: "books-com-tw-collection-api",
+    library: "books-com-tw-crawler",
     libraryTarget: "umd",
   },
   module: {
