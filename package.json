@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FlowerEatFish/books-com-tw-api.git"
+    "url": "git+https://github.com/FlowerEatsFish/books-com-tw-api.git"
   },
   "keywords": [
     "api",
@@ -26,9 +26,9 @@
   "author": "Eating-Fish Flower",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/FlowerEatFish/books-com-tw-api/issues"
+    "url": "https://github.com/FlowerEatsFish/books-com-tw-api/issues"
   },
-  "homepage": "https://github.com/FlowerEatFish/books-com-tw-api#readme",
+  "homepage": "https://github.com/FlowerEatsFish/books-com-tw-api#readme",
   "dependencies": {
     "axios": "^0.21.1"
   },
