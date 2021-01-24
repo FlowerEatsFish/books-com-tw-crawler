@@ -1,0 +1,52 @@
+name: build
+
+on:
+  push:
+    branches: [master, develop]
+  pull_request:
+    branches: [master, develop]
+
+jobs:
+  build:
+    name: Ubuntu NodeJS v${{ matrix.node-version }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [10, 12]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: yarn global add codecov
+      - run: yarn install
+      - run: yarn run lint
+      - run: yarn run build
+      - run: yarn run build:dev
+      - run: yarn run build:prod
+      - run: yarn test
+      - name: Codecov
+        uses: codecov/codecov-action@v1.0.12
+  slack:
+    name: Slack Notification
+    needs: build
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - uses: 8398a7/action-slack@v3
+        with:
+          status: custom
+          fields: all
+          custom_payload: |
+            {
+              attachments: [{
+                color: '${{ needs.build.result }}' === 'success' ? 'good' : '${{ needs.build.result }}' === 'failure' ? 'danger' : 'warning',
+                text: `*${process.env.AS_REPO}* | ${process.env.AS_REF} | *${process.env.AS_EVENT_NAME}*\n${process.env.AS_COMMIT} | ${process.env.AS_MESSAGE}\n*${{ needs.build.result }}* | ${process.env.AS_WORKFLOW}`,
+              }]
+            }
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()

@@ -1,0 +1,23 @@
+name: dependencies-status
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  schedule:
+    - cron: 0 8 5,15,25 * *
+
+jobs:
+  dependencies-status:
+    name: Dependencies Status
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: sudo yarn global add npm-check
+      - run: yarn install --production
+      - run: npm-check --production --skip-unused

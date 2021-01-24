@@ -1,10 +1,9 @@
 # Unofficial Books-com-tw Collection API
 
 [![NPM version](https://img.shields.io/npm/v/@flowereatfish/books-com-tw-api.svg)](https://www.npmjs.com/package/@flowereatfish/books-com-tw-api)
-[![Travis-CI status](https://travis-ci.com/FlowerEatFish/books-com-tw-api.svg?branch=master)](https://travis-ci.com/FlowerEatFish/books-com-tw-api/builds)
-[![AppVeyor status](https://ci.appveyor.com/api/projects/status/tg20it4v5621vv3y/branch/master?svg=true)](https://ci.appveyor.com/project/FlowerEatFish/books-com-tw-api/history)
+[![Actions status](https://github.com/FlowerEatFish/books-com-tw-api/workflows/build/badge.svg?branch=master)](https://github.com/FlowerEatFish/books-com-tw-api/actions)
 [![Codecov status](https://codecov.io/gh/FlowerEatFish/books-com-tw-api/branch/master/graph/badge.svg)](https://codecov.io/gh/FlowerEatFish/books-com-tw-api/commits)
-[![Dependencies status](https://david-dm.org/FlowerEatFish/books-com-tw-api/status.svg)](https://david-dm.org/FlowerEatFish/books-com-tw-api)
+[![Dependencies status](https://github.com/FlowerEatFish/books-com-tw-api/workflows/dependencies-status/badge.svg?branch=master)](https://github.com/FlowerEatFish/books-com-tw-api/actions)
 [![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io/)
 [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
