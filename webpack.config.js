@@ -1,5 +1,5 @@
 const { BannerPlugin } = require('webpack');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
 const packageInfo = require('./package.json');
 
@@ -31,7 +31,7 @@ const commonConfig = {
   },
   plugins: [
     new BannerPlugin({
-      banner: `Repository: ${packageInfo.name} | Version: ${packageInfo.version} | Author: ${packageInfo.author} | License: ${packageInfo.license}`
+      banner: `@banner Repository: ${packageInfo.name} | Version: ${packageInfo.version} | Author: ${packageInfo.author} | License: ${packageInfo.license}`
     })
   ]
 };
@@ -39,12 +39,13 @@ const commonConfig = {
 const prodConfig = {
   optimization: {
     minimizer: [
-      new UglifyJSPlugin({
-        uglifyOptions: {
-          compress: {
-            drop_console: true
+      new TerserPlugin({
+        terserOptions: {
+          output: {
+            comments: /@banner/i
           }
-        }
+        },
+        extractComments: false
       })
     ]
   }
@@ -57,7 +58,7 @@ const runBeforeWebpack = () => {
     case PRODUCTION:
       return Object.assign({}, commonConfig, prodConfig);
     default:
-      throw new Error(`process.env.NODE_ENV does NOT match with "${DEVELOPMENT}" or "${PRODUCTION}".`);
+      throw new Error(`process.env.NODE_ENV does NOT match with '${DEVELOPMENT}' or '${PRODUCTION}'.`);
   }
 };
 
