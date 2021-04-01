@@ -5,8 +5,8 @@
 import booksComTwCollection from "./index";
 
 const demoKeywordList: string[] = [
-  "春夏秋冬，日日食光。生活美學家的鑄鐵鍋料理手帖", // It will get one result as expected.
-  "相對論，愛因斯坦教會我們什麼", // It will get more results on 12 ones per page as expected.
+  "快速上手LINUX的九堂課", // It will get one result as expected.
+  "春夏秋冬", // It will get more results on 24 ones per page as expected.
   "blablablablablablablablablablablabla", // It will be no result.
 ];
 

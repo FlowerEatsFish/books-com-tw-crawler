@@ -8,24 +8,24 @@ describe("Run demo", (): void => {
     "Should get one result as Array",
     async (): Promise<void> => {
       const result: DetailType[] | null = await booksComTwCollection(
-        "春夏秋冬，日日食光。生活美學家的鑄鐵鍋料理手帖",
+        "快速上手LINUX的九堂課",
       );
 
-      expect(Array.isArray(result)).toBeTruthy();
+      expect(result).toBeInstanceOf(Array);
       expect((result as DetailType[]).length).toBe(1);
     },
     timeout,
   );
 
   it(
-    "Should get results as Array and no more than 20",
+    "Should get results as Array and no more than 24",
     async (): Promise<void> => {
       const result: DetailType[] | null = await booksComTwCollection(
-        "相對論，愛因斯坦教會我們什麼",
+        "春夏秋冬",
       );
 
-      expect(Array.isArray(result)).toBeTruthy();
-      expect((result as DetailType[]).length).toBeLessThanOrEqual(20);
+      expect(result).toBeInstanceOf(Array);
+      expect((result as DetailType[]).length).toBeLessThanOrEqual(24);
     },
     timeout,
   );

@@ -16,7 +16,7 @@ const removeAllHtmlTag = (text: string): string => {
 const setItemWithTag = (text: string, tag: string): number | null => {
   try {
     if (text.includes(tag)) {
-      const newRegExp: RegExp = new RegExp(`<strong>\\s*<b>\\d+<\\/b>\\s*${tag}<\\/strong>`, "gi");
+      const newRegExp: RegExp = new RegExp(`<strong>\\d+<\\/strong>\\s*${tag}`, "gi");
       const result: string[] | null = text.match(newRegExp);
 
       return result ? Number(result[0].replace(/\D/gi, "")) : null;
@@ -30,7 +30,9 @@ const setItemWithTag = (text: string, tag: string): number | null => {
 
 const getItemPrice = (htmlCode: string): PriceField => {
   try {
-    const result: string[] | null = htmlCode.match(/<span class="price">[\w\W]*?<\/span>/gi);
+    const result: string[] | null = htmlCode.match(
+      /<ul class="list-nav clearfix">[\w\W]*?<\/ul>/gi,
+    );
 
     if (result) {
       return {
@@ -56,12 +58,12 @@ const getItemImageUrl = (htmlCode: string): string | null => {
     let result: string[] | null = htmlCode.match(/<img [\w\W]*?>/gi);
 
     if (result) {
-      result = result[0].match(/data-original="[\w\W]*?"/gi);
+      result = result[0].match(/srcset="[\w\W]*?"/gi);
     }
 
     return result
       ? result[0].replace(
-          /data-original="https:\/\/im1\.book\.com\.tw\/image\/getImage\?i=([\w\W]*?)&[\w\W]*/gi,
+          /srcset="https:\/\/im1\.book\.com\.tw\/image\/getImage\?i=([\w\W]*?)&[\w\W]*/gi,
           "$1",
         )
       : null;
@@ -72,7 +74,7 @@ const getItemImageUrl = (htmlCode: string): string | null => {
 
 const getItemAuthor = (htmlCode: string): string[] | null => {
   try {
-    const result: string[] | null = htmlCode.match(/<a rel="go_author"[\w\W]*?>[\w\W]*?<\/a>/gi);
+    const result: string[] | null = htmlCode.match(/<a rel='go_author'[\w\W]*?>[\w\W]*?<\/a>/gi);
 
     if (result && result.length > 0) {
       const resultWithoutHtmlTag: string[] = result.map((value: string): string =>
@@ -117,7 +119,7 @@ const getItemPublicationDate = (htmlCode: string): string | null => {
 
 const getItemUrl = (htmlCode: string): string | null => {
   try {
-    let result: string[] | null = htmlCode.match(/<h3>[\w\W]*?<\/h3>/gi);
+    let result: string[] | null = htmlCode.match(/<h4>[\w\W]*?<\/h4>/gi);
     if (result) {
       result = result[0].match(/<a [\w\W]*?<\/a>/gi);
     }
@@ -130,7 +132,7 @@ const getItemUrl = (htmlCode: string): string | null => {
 
 const getItemTitle = (htmlCode: string): string | null => {
   try {
-    const result: string[] | null = htmlCode.match(/<h3>[\w\W]*?<\/h3>/gi);
+    const result: string[] | null = htmlCode.match(/<h4>[\w\W]*?<\/h4>/gi);
 
     return result ? removeAllHtmlTag(result[0]) : null;
   } catch (error) {
@@ -168,10 +170,12 @@ const getItem = (htmlCode: string): DetailType => {
 };
 
 const splitHtmlCode = (htmlCode: string): string[] | null =>
-  htmlCode.match(/<li class="item">[\w\W]*?<\/li>/gi);
+  htmlCode.match(/<tbody id="itemlist_[\w\d]+">[\w\W]*?<\/tbody>/gi);
 
 const getSpecificHtmlCode = (htmlCode: string): string | null => {
-  const result = htmlCode.match(/<ul class="searchbook">[\w\W]*?<\/ul>/gi);
+  const result = htmlCode.match(
+    /<table id="itemlist_table" class="table-searchlist clearfix">[\w\W]*?<\/table>/gi,
+  );
 
   return result ? result[0] : null;
 };

@@ -77,25 +77,22 @@ $ npm start
 
 [
   {
-    title: '春夏秋冬，日日食光。生活美學家的鑄鐵鍋料理手帖',
-    url: 'http://search.books.com.tw/redirect/move/key/%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%EF%BC%8C%E6%97%A5%E6%97%A5%E9%A3%9F%E5%85%89%E3%80%82%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%B8%E5%AE%B6%E7%9A%84%E9%91%84%E9%90%B5%E9%8D%8B%E6%96%99%E
-7%90%86%E6%89%8B%E5%B8%96/area/mid/item/0010706739/page/1/idx/1/cat/001/pdf/1',
-    author: [ '渡邊有子', '游韻馨' ],
-    publisher: '臉譜',
-    publicationDate: '2016-02-27',
-    imageUrl: 'https://www.books.com.tw/img/001/070/67/0010706739.jpg',
-    price: { discount: 7, currentPrice: 252 },
-    introduction: '， 在日本已分享了許多對於簡單生活的想法和實行秘訣， ' +
-      '尤其在飲食方面，更提出許多同時注重美味、美感和健康的料理，因此廣受大眾歡迎。 在出版過許多料理食譜書後，她認為， ' +
-      '使用春、夏、秋、冬的當令食材，搭配鑄鐵鍋，最能引出食材的天然風味......'
+    title: 'Linuxの繪本：快速上手LINUX的九堂課',
+    url: 'http://search.books.com.tw/redirect/move/key/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8BLINUX%E7%9A%84%E4%B9%9D%E5%A0%82%E8%AA%B2/area/mid/item/0010875493/page/1/idx/1/cat/001/pdf/1',
+    author: [ '株式会社アンク', '何蟬秀' ],
+    publisher: '碁峰',
+    publicationDate: '2020-11-12',
+    imageUrl: 'https://www.books.com.tw/img/001/087/54/0010875493.jpg',
+    price: { discount: 79, currentPrice: 300 },
+    introduction: '日本當地累積銷售70萬冊的最佳入門圖解書 本書使用擬人化的漫畫人物與圖解針對Linux的基本觀念與操作進行淺顯易懂的解說，即使是未曾接觸過Linux的讀者，也能藉由本書了解何謂「作業系統」，並學會如何操作Linux系統。 本書特色......'
   }
 ]
 ```
 
 ```shell
->>> You search data using keyword "相對論，愛因斯坦教會我們什麼".
+>>> You search data using keyword "春夏秋冬".
 
-[ {...}, {...}, ... ] # Array.prototype.length <= 20
+[ {...}, {...}, ... ] # Array.prototype.length <= 24
 ```
 
 ```shell
@@ -115,7 +112,7 @@ const result = booksComTwCrawler(
   keyword, // string. Necessary.
            // If you set it as null, it will get an error.
   page, // number. Positive integer. Default: 1.
-        // Every page only shows maximum 20 results.
+        // Every page only shows maximum 24 results.
 )
 ```
 

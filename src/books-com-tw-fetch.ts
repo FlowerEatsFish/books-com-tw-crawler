@@ -34,7 +34,7 @@ const setUrl = (keyword: string, page: number): string => {
   const tempKeyword: string = setKeywordToInsertUrl(keyword);
   const tempPage: number = setPageToInsertUrl(page);
 
-  return `http://search.books.com.tw/search/query/cat/all/key/${tempKeyword}/sort/1/page/${tempPage}/v/0/`;
+  return `https://search.books.com.tw/search/query/cat/all/sort/1/v/0/ms2/ms2_1/page/${tempPage}/key/${tempKeyword}`;
 };
 
 const fetchFullHtmlCode = async (url: string): Promise<string> => {
