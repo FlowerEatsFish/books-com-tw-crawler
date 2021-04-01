@@ -81,7 +81,7 @@ $ yarn start # npm start
 ### Results
 
 ```shell
->>> You search data using keyword "春夏秋冬，日日食光。生活美學家的鑄鐵鍋料理手帖".
+>>> You search data using keyword "快速上手LINUX的九堂課".
 
 [
   {
