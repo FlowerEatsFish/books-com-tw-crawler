@@ -3,6 +3,7 @@
     /* Basic Options */
     "target": "es5",
     "lib": [
+      "es2020",
       "es2019",
       "es2018",
       "es2017",
