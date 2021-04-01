@@ -7,9 +7,7 @@ describe("Run demo", (): void => {
   it(
     "Should get one result as Array",
     async (): Promise<void> => {
-      const result: DetailType[] | null = await booksComTwCollection(
-        "快速上手LINUX的九堂課",
-      );
+      const result: DetailType[] | null = await booksComTwCollection("快速上手LINUX的九堂課");
 
       expect(result).toBeInstanceOf(Array);
       expect((result as DetailType[]).length).toBe(1);
@@ -20,9 +18,7 @@ describe("Run demo", (): void => {
   it(
     "Should get results as Array and no more than 24",
     async (): Promise<void> => {
-      const result: DetailType[] | null = await booksComTwCollection(
-        "春夏秋冬",
-      );
+      const result: DetailType[] | null = await booksComTwCollection("春夏秋冬");
 
       expect(result).toBeInstanceOf(Array);
       expect((result as DetailType[]).length).toBeLessThanOrEqual(24);
