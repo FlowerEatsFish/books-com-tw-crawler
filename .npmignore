@@ -8,6 +8,7 @@ test/
 .eslintignore
 .eslintrc
 .gitignore
+.prettierrc
 .travis.yml
 
 # configs
