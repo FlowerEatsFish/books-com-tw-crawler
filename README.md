@@ -10,8 +10,8 @@
 博客來資料爬蟲
 
 - [Books-com-tw Crawler](#Books-com-tw-Crawler)
-  - [Requirement](#Requirement)
-  - [Installation](#Installation)
+  - [Requirements](#Requirements)
+  - [Installations](#Installations)
   - [Usage](#Usage)
     - [Node.js version 8 or higher (with full Async/Await support)](#Nodejs-version-8-or-higher-with-full-AsyncAwait-support)
     - [Others](#Others)
@@ -22,14 +22,22 @@
     - [Input parameters](#Input-parameters)
     - [Output results](#Output-results)
 
-## Requirement
+## Requirements
 
 - This construct uses XHR such as [Axios.js](https://github.com/axios/axios), so you need to care about the Cross-Origin Requests (CORS) and [mixed content](https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content) if you use this construct in web browsers rather than Node.js.
 
-## Installation
+## Installations
+
+- NPM
 
 ```shell
 npm install books-com-tw-crawler --save
+```
+
+- Yarn
+
+```shell
+yarn add books-com-tw-crawler
 ```
 
 ## Usage
@@ -64,10 +72,10 @@ booksComTwCrawler('橡皮擦計畫')
 # To download the files and install packages.
 $ git clone https://github.com/FlowerEatsFish/books-com-tw-crawler.git
 $ cd books-com-tw-crawler
-$ npm install
+$ yarn install # npm install
 
 # To run a demo.
-$ npm start
+$ yarn start # npm start
 ```
 
 ### Results
