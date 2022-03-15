@@ -23,7 +23,7 @@
     "web-crawler"
   ],
   "dependencies": {
-    "axios": "^0.26.0"
+    "axios": "^0.26.1"
   },
   "devDependencies": {
     "@types/jest": "^27.0.2",
