@@ -14,162 +14,121 @@ const removeAllHtmlTag = (text: string): string => {
 };
 
 const setItemWithTag = (text: string, tag: string): number | null => {
-  try {
-    if (text.includes(tag)) {
-      const newRegExp: RegExp = new RegExp(`<strong>\\d+<\\/strong>\\s*${tag}`, "gi");
-      const result: string[] | null = text.match(newRegExp);
+  if (text.includes(tag)) {
+    const newRegExp: RegExp = new RegExp(`<strong>\\d+<\\/strong>\\s*${tag}`, "gi");
+    const result: string[] | null = text.match(newRegExp);
 
-      if (result) {
-        return Number(result[0].replace(/\D/gi, ""));
-      }
-      return null;
+    if (result) {
+      return Number(result[0].replace(/\D/gi, ""));
     }
-
-    return null;
-  } catch (error) {
     return null;
   }
+
+  return null;
 };
 
 const getItemPrice = (htmlCode: string): PriceField => {
-  try {
-    const result: string[] | null = htmlCode.match(
-      /<ul class="list-nav clearfix">[\w\W]*?<\/ul>/gi,
-    );
+  const result: string[] | null = htmlCode.match(/<ul class="list-nav clearfix">[\w\W]*?<\/ul>/gi);
 
-    if (result) {
-      return {
-        discount: setItemWithTag(result[0], "折"),
-        currentPrice: setItemWithTag(result[0], "元"),
-      };
-    }
-
+  if (result) {
     return {
-      discount: null,
-      currentPrice: null,
-    };
-  } catch (error) {
-    return {
-      discount: null,
-      currentPrice: null,
+      discount: setItemWithTag(result[0], "折"),
+      currentPrice: setItemWithTag(result[0], "元"),
     };
   }
+
+  return {
+    discount: null,
+    currentPrice: null,
+  };
 };
 
 const getItemImageUrl = (htmlCode: string): string | null => {
-  try {
-    let result: string[] | null = htmlCode.match(/<img [\w\W]*?>/gi);
+  let result: string[] | null = htmlCode.match(/<img [\w\W]*?>/gi);
 
-    if (result) {
-      result = result[0].match(/srcset="[\w\W]*?"/gi);
-    }
-
-    if (result) {
-      return result[0].replace(
-        /srcset="https:\/\/im1\.book\.com\.tw\/image\/getImage\?i=([\w\W]*?)&[\w\W]*/gi,
-        "$1",
-      );
-    }
-    return null;
-  } catch (error) {
-    return null;
+  if (result) {
+    result = result[0].match(/srcset="[\w\W]*?"/gi);
   }
+
+  if (result) {
+    return result[0].replace(
+      /srcset="https:\/\/im1\.book\.com\.tw\/image\/getImage\?i=([\w\W]*?)&[\w\W]*/gi,
+      "$1",
+    );
+  }
+  return null;
 };
 
 const getItemAuthor = (htmlCode: string): string[] | null => {
-  try {
-    const result: string[] | null = htmlCode.match(/<a rel='go_author'[\w\W]*?>[\w\W]*?<\/a>/gi);
+  const result: string[] | null = htmlCode.match(/<a rel='go_author'[\w\W]*?>[\w\W]*?<\/a>/gi);
 
-    if (result && result.length > 0) {
-      const resultWithoutHtmlTag: string[] = result.map((value: string): string =>
-        removeAllHtmlTag(value),
-      );
+  if (result && result.length > 0) {
+    const resultWithoutHtmlTag: string[] = result.map((value: string): string =>
+      removeAllHtmlTag(value),
+    );
 
-      return resultWithoutHtmlTag;
-    }
-
-    return null;
-  } catch (error) {
-    return null;
+    return resultWithoutHtmlTag;
   }
+
+  return null;
 };
 
 const getItemPublisher = (htmlCode: string): string | null => {
-  try {
-    let result: string[] | null;
-    if (htmlCode.includes('target="_blank" rel="mid_publish"')) {
-      // For Chinese books
-      result = htmlCode.match(/<a target="_blank" rel="mid_publish"[\w\W]*?>[\w\W]*?<\/a>/gi);
-    } else {
-      // For Western books
-      result = htmlCode.match(/<a rel="mid_publish"[\w\W]*?>[\w\W]*?<\/a>/gi);
-    }
-
-    if (result) {
-      return removeAllHtmlTag(result[0]);
-    }
-    return null;
-  } catch (error) {
-    return null;
+  let result: string[] | null;
+  if (htmlCode.includes('target="_blank" rel="mid_publish"')) {
+    // For Chinese books
+    result = htmlCode.match(/<a target="_blank" rel="mid_publish"[\w\W]*?>[\w\W]*?<\/a>/gi);
+  } else {
+    // For Western books
+    result = htmlCode.match(/<a rel="mid_publish"[\w\W]*?>[\w\W]*?<\/a>/gi);
   }
+
+  if (result) {
+    return removeAllHtmlTag(result[0]);
+  }
+  return null;
 };
 
 const getItemPublicationDate = (htmlCode: string): string | null => {
-  try {
-    const result: string[] | null = htmlCode.match(/出版日期: \d{4}-\d{2}-\d{2}/);
+  const result: string[] | null = htmlCode.match(/出版日期: \d{4}-\d{2}-\d{2}/);
 
-    if (result) {
-      return result[0].replace("出版日期: ", "");
-    }
-    return null;
-  } catch (error) {
-    return null;
+  if (result) {
+    return result[0].replace("出版日期: ", "");
   }
+  return null;
 };
 
 const getItemUrl = (htmlCode: string): string | null => {
-  try {
-    let result: string[] | null = htmlCode.match(/<h4>[\w\W]*?<\/h4>/gi);
-    if (result) {
-      result = result[0].match(/<a [\w\W]*?<\/a>/gi);
-    }
-
-    if (result) {
-      return result[0].replace(/<a [\w\W]*?href="([\w\W]*?)"[\w\W]*/gi, "http:$1");
-    }
-    return null;
-  } catch (error) {
-    return null;
+  let result: string[] | null = htmlCode.match(/<h4>[\w\W]*?<\/h4>/gi);
+  if (result) {
+    result = result[0].match(/<a [\w\W]*?<\/a>/gi);
   }
+
+  if (result) {
+    return result[0].replace(/<a [\w\W]*?href="([\w\W]*?)"[\w\W]*/gi, "http:$1");
+  }
+  return null;
 };
 
 const getItemTitle = (htmlCode: string): string | null => {
-  try {
-    const result: string[] | null = htmlCode.match(/<h4>[\w\W]*?<\/h4>/gi);
+  const result: string[] | null = htmlCode.match(/<h4>[\w\W]*?<\/h4>/gi);
 
-    if (result) {
-      return removeAllHtmlTag(result[0]);
-    }
-    return null;
-  } catch (error) {
-    return null;
+  if (result) {
+    return removeAllHtmlTag(result[0]);
   }
+  return null;
 };
 
 const getItemIntroduction = (htmlCode: string): string | null => {
-  try {
-    const result: string[] | null = htmlCode.match(/<p>[\w\W]*?<\/p>/gi);
+  const result: string[] | null = htmlCode.match(/<p>[\w\W]*?<\/p>/gi);
 
-    if (result) {
-      // To remove useless texts like "更多資訊"
-      const filterResult = result[0].replace(/<span>[\w\W]*?<\/span>/gi, "");
+  if (result) {
+    // To remove useless texts like "更多資訊"
+    const filterResult = result[0].replace(/<span>[\w\W]*?<\/span>/gi, "");
 
-      return removeAllHtmlTag(filterResult);
-    }
-    return null;
-  } catch (error) {
-    return null;
+    return removeAllHtmlTag(filterResult);
   }
+  return null;
 };
 
 const getItem = (htmlCode: string): DetailType => {
