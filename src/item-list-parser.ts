@@ -19,7 +19,10 @@ const setItemWithTag = (text: string, tag: string): number | null => {
       const newRegExp: RegExp = new RegExp(`<strong>\\d+<\\/strong>\\s*${tag}`, "gi");
       const result: string[] | null = text.match(newRegExp);
 
-      return result ? Number(result[0].replace(/\D/gi, "")) : null;
+      if (result) {
+        return Number(result[0].replace(/\D/gi, ""));
+      }
+      return null;
     }
 
     return null;
@@ -61,12 +64,13 @@ const getItemImageUrl = (htmlCode: string): string | null => {
       result = result[0].match(/srcset="[\w\W]*?"/gi);
     }
 
-    return result
-      ? result[0].replace(
-          /srcset="https:\/\/im1\.book\.com\.tw\/image\/getImage\?i=([\w\W]*?)&[\w\W]*/gi,
-          "$1",
-        )
-      : null;
+    if (result) {
+      return result[0].replace(
+        /srcset="https:\/\/im1\.book\.com\.tw\/image\/getImage\?i=([\w\W]*?)&[\w\W]*/gi,
+        "$1",
+      );
+    }
+    return null;
   } catch (error) {
     return null;
   }
@@ -101,7 +105,10 @@ const getItemPublisher = (htmlCode: string): string | null => {
       result = htmlCode.match(/<a rel="mid_publish"[\w\W]*?>[\w\W]*?<\/a>/gi);
     }
 
-    return result ? removeAllHtmlTag(result[0]) : null;
+    if (result) {
+      return removeAllHtmlTag(result[0]);
+    }
+    return null;
   } catch (error) {
     return null;
   }
@@ -111,7 +118,10 @@ const getItemPublicationDate = (htmlCode: string): string | null => {
   try {
     const result: string[] | null = htmlCode.match(/出版日期: \d{4}-\d{2}-\d{2}/);
 
-    return result ? result[0].replace("出版日期: ", "") : null;
+    if (result) {
+      return result[0].replace("出版日期: ", "");
+    }
+    return null;
   } catch (error) {
     return null;
   }
@@ -124,7 +134,10 @@ const getItemUrl = (htmlCode: string): string | null => {
       result = result[0].match(/<a [\w\W]*?<\/a>/gi);
     }
 
-    return result ? result[0].replace(/<a [\w\W]*?href="([\w\W]*?)"[\w\W]*/gi, "http:$1") : null;
+    if (result) {
+      return result[0].replace(/<a [\w\W]*?href="([\w\W]*?)"[\w\W]*/gi, "http:$1");
+    }
+    return null;
   } catch (error) {
     return null;
   }
@@ -134,7 +147,10 @@ const getItemTitle = (htmlCode: string): string | null => {
   try {
     const result: string[] | null = htmlCode.match(/<h4>[\w\W]*?<\/h4>/gi);
 
-    return result ? removeAllHtmlTag(result[0]) : null;
+    if (result) {
+      return removeAllHtmlTag(result[0]);
+    }
+    return null;
   } catch (error) {
     return null;
   }
@@ -177,7 +193,10 @@ const getSpecificHtmlCode = (htmlCode: string): string | null => {
     /<table id="itemlist_table" class="table-searchlist clearfix">[\w\W]*?<\/table>/gi,
   );
 
-  return result ? result[0] : null;
+  if (result) {
+    return result[0];
+  }
+  return null;
 };
 
 export const itemListParser = async (htmlCode: string): Promise<DetailType[]> => {
