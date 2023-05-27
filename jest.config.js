@@ -1,10 +1,8 @@
+/** @type {import('jest').Config} */
 module.exports = {
   roots: [
     "<rootDir>",
   ],
-  transform: {
-    "^.+\\.tsx?$": "ts-jest",
-  },
   testPathIgnorePatterns: [
     "<rootDir>/node_modules/",
     "<rootDir>/build/",
@@ -14,10 +12,11 @@ module.exports = {
     "<rootDir>/src/**/*.ts",
     "!<rootDir>/src/demo.ts",
     "!<rootDir>/src/**/*.d.ts",
+    "!<rootDir>/src/**/*.test.ts",
   ],
   testMatch: [
+    "<rootDir>/**/*.test.ts",
     "<rootDir>/test/**/*.ts",
-    "<rootDir>/test/**/*.tsx",
   ],
   testEnvironment: "node",
   moduleFileExtensions: [
