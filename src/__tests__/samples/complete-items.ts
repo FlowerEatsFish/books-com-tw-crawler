@@ -89,7 +89,7 @@ const htmlCode = `
               href="//search.books.com.tw/search/query/cat/all/v/0/adv_author/1/key/Rappin"
               title="Rappin">Rappin</a>&nbsp;<a rel="go_author"
               href="//search.books.com.tw/search/query/cat/all/v/0/adv_author/1/key/Thomas" title="Thomas">Thomas</a> ,
-            <a rel="mid_publish" href="//search.books.com.tw/search/query/cat/all/key/Ingram" title="Ingram">Ingram</a>
+            <a target="_blank" rel="mid_publish" href="//search.books.com.tw/search/query/cat/all/key/Ingram" title="Ingram">Ingram</a>
             , 出版日期: 2023-10-24
           </li>
         </ul>
