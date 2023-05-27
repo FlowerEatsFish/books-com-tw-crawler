@@ -18,7 +18,7 @@ const booksComTwCollection: BooksComTwCollectionFunction = async (
     return null;
   }
 
-  const itemList: DetailType[] = await itemListParser(htmlCodeAfterFetch.data);
+  const itemList: DetailType[] = itemListParser(htmlCodeAfterFetch.data);
   if (itemList.length > 0) {
     // To do here if the HTML code contains one or more result(s)
     return itemList;

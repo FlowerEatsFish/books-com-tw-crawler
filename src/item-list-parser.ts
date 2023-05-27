@@ -158,7 +158,7 @@ const getSpecificHtmlCode = (htmlCode: string): string | null => {
   return null;
 };
 
-export const itemListParser = async (htmlCode: string): Promise<DetailType[]> => {
+export const itemListParser = (htmlCode: string): DetailType[] => {
   // To get specific html code containing data
   const targetHtmlCode: string | null = getSpecificHtmlCode(htmlCode);
   if (!targetHtmlCode) return [];
