@@ -10,9 +10,9 @@ module.exports = {
   ],
   collectCoverageFrom: [
     "<rootDir>/src/**/*.ts",
+    "!<rootDir>/src/**/__tests__/**",
     "!<rootDir>/src/demo.ts",
     "!<rootDir>/src/**/*.d.ts",
-    "!<rootDir>/src/**/*.test.ts",
   ],
   testMatch: [
     "<rootDir>/**/*.test.ts",
@@ -21,9 +21,7 @@ module.exports = {
   testEnvironment: "node",
   moduleFileExtensions: [
     "ts",
-    "tsx",
     "js",
-    "jsx",
     "json",
     "node",
   ],
