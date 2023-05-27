@@ -14,7 +14,7 @@ const booksComTwCollection: BooksComTwCollectionFunction = async (
 
   // To check whether data is got
   if (htmlCodeAfterFetch.data === null) {
-    // To do here if html code is empty (no result is got from the HTML code)
+    // To do here if html code is empty (no result is got from the HTML code) or status code is not 200
     return null;
   }
 
@@ -23,7 +23,7 @@ const booksComTwCollection: BooksComTwCollectionFunction = async (
     // To do here if the HTML code contains one or more result(s)
     return itemList;
   }
-  // To do here if no result is got from the HTML code
+  // To do here if no result is got from the HTML code and status code is 200
   return null;
 };
 

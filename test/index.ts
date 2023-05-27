@@ -27,7 +27,7 @@ describe("Run demo", (): void => {
   );
 
   test(
-    "Should do not have any result as Null",
+    "Should do not have any result as Null when the status code from XHR for data not found is 404",
     async () => {
       const result: DetailType[] | null = await booksComTwCollection(
         "blablablablablablablablablablablabla",
