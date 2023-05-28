@@ -6,6 +6,7 @@ const packageInfo = require("./package.json");
 const DEVELOPMENT = "development";
 const PRODUCTION = "production";
 
+/** @type {import('webpack').Configuration} */
 const commonConfig = {
   mode: process.env.NODE_ENV,
   entry: {
@@ -36,6 +37,7 @@ const commonConfig = {
   ],
 };
 
+/** @type {import('webpack').Configuration} */
 const prodConfig = {
   optimization: {
     minimizer: [

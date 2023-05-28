@@ -4,9 +4,9 @@ import booksComTwCollection from "../src/index";
 const timeout = 60 * 1000;
 
 describe("Run demo", (): void => {
-  it(
+  test(
     "Should get one result as Array",
-    async (): Promise<void> => {
+    async () => {
       const result: DetailType[] | null = await booksComTwCollection("快速上手LINUX的九堂課");
 
       expect(result).toBeInstanceOf(Array);
@@ -15,9 +15,9 @@ describe("Run demo", (): void => {
     timeout,
   );
 
-  it(
+  test(
     "Should get results as Array and no more than 24",
-    async (): Promise<void> => {
+    async () => {
       const result: DetailType[] | null = await booksComTwCollection("春夏秋冬");
 
       expect(result).toBeInstanceOf(Array);
@@ -26,9 +26,9 @@ describe("Run demo", (): void => {
     timeout,
   );
 
-  it(
-    "Should do not have any result as Null",
-    async (): Promise<void> => {
+  test(
+    "Should do not have any result as Null when the status code from XHR for data not found is 404",
+    async () => {
       const result: DetailType[] | null = await booksComTwCollection(
         "blablablablablablablablablablablabla",
       );
