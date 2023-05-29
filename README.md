@@ -10,32 +10,25 @@
 
 博客來資料爬蟲
 
-- [Books-com-tw Crawler](#Books-com-tw-Crawler)
-  - [Requirements](#Requirements)
-  - [Installations](#Installations)
-  - [Usage](#Usage)
-    - [Node.js version 8 or higher (with full Async/Await support)](#Nodejs-version-8-or-higher-with-full-AsyncAwait-support)
-    - [Others](#Others)
-  - [Demo](#Demo)
-    - [Commands](#Commands)
-    - [Results](#Results)
-  - [API documentation](#API-documentation)
-    - [Input parameters](#Input-parameters)
-    - [Output results](#Output-results)
+- [Books-com-tw Crawler](#books-com-tw-crawler)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Demo](#demo)
+    - [Commands](#commands)
+    - [Results](#results)
+  - [Documentation](#documentation)
+    - [Input parameters](#input-parameters)
+    - [Output results](#output-results)
 
-## Requirements
+## Installation
 
-- This construct uses XHR such as [Axios.js](https://github.com/axios/axios), so you need to care about the Cross-Origin Requests (CORS) and [mixed content](https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content) if you use this construct in web browsers rather than Node.js.
-
-## Installations
-
-- NPM
+NPM
 
 ```shell
 npm install books-com-tw-crawler --save
 ```
 
-- Yarn
+Yarn
 
 ```shell
 yarn add books-com-tw-crawler
@@ -43,26 +36,19 @@ yarn add books-com-tw-crawler
 
 ## Usage
 
-### Node.js version 8 or higher (with full Async/Await support)
-
 ```javascript
 const booksComTwCrawler = require('books-com-tw-crawler');
 
-const run = async () => {
-  const results = await booksComTwCrawler('橡皮擦計畫');
-  console.log(results);
-};
-
-run();
-```
-
-### Others
-
-```javascript
-const booksComTwCrawler = require('books-com-tw-crawler');
-
-booksComTwCrawler('橡皮擦計畫')
+// Option 1
+booksComTwCrawler('The Clean Coder')
   .then(results => console.log(results));
+
+// Option 2
+async function run() {
+  const results = await booksComTwCrawler('The Clean Coder')
+  console.log(results);
+}
+run();
 ```
 
 ## Demo
@@ -110,19 +96,19 @@ $ yarn start # npm start
 null
 ```
 
-## API documentation
+## Documentation
 
 ### Input parameters
 
 ```javascript
 import booksComTwCrawler from 'books-com-tw-crawler';
 
-const result = booksComTwCrawler(
+const result = await booksComTwCrawler(
   keyword, // string. Necessary.
            // If you set it as null, it will get an error.
   page, // number. Positive integer. Default: 1.
         // Every page only shows maximum 24 results.
-)
+);
 ```
 
 ### Output results
