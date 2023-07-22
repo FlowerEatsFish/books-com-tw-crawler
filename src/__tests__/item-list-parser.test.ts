@@ -22,8 +22,7 @@ describe("item-list-parser", () => {
         publicationDate: "2020-04-30",
         publisher: null,
         title: "The Pragmatic Programmer 20週年紀念版",
-        url:
-          "http://search.books.com.tw/redirect/move/key/the+pragmatic+programmer/area/mid/item/0010856354/page/1/idx/1/cat/001/pdf/1/spell/3",
+        url: "http://search.books.com.tw/redirect/move/key/the+pragmatic+programmer/area/mid/item/0010856354/page/1/idx/1/cat/001/pdf/1/spell/3",
       },
       {
         author: null,
@@ -37,8 +36,7 @@ describe("item-list-parser", () => {
         publicationDate: "2023-10-24",
         publisher: "Ingram",
         title: "Programming Ruby 3.2: The Pragmatic Programmers’ Guide",
-        url:
-          "http://search.books.com.tw/redirect/move/key/the+pragmatic+programmer/area/mid/item/F019878686/page/1/idx/2/cat/F01/pdf/0/spell/3",
+        url: "http://search.books.com.tw/redirect/move/key/the+pragmatic+programmer/area/mid/item/F019878686/page/1/idx/2/cat/F01/pdf/0/spell/3",
       },
     ];
     expect(output).toEqual(expected);
