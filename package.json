@@ -21,7 +21,7 @@
     "web-crawler"
   ],
   "dependencies": {
-    "axios": "^0.27.2"
+    "axios": "^1.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",
