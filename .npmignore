@@ -9,7 +9,6 @@ test/
 .eslintrc
 .gitignore
 .prettierrc
-.travis.yml
 
 # configs
 appveyor.yml
