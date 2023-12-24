@@ -16,12 +16,12 @@ describe("Run demo", (): void => {
   );
 
   test(
-    "Should get results as Array and no more than 24",
+    "Should get results as Array and no more than 60",
     async () => {
       const result: DetailType[] | null = await booksComTwCollection("春夏秋冬");
 
       expect(result).toBeInstanceOf(Array);
-      expect((result as DetailType[]).length).toBeLessThanOrEqual(24);
+      expect((result as DetailType[]).length).toBeLessThanOrEqual(60);
     },
     timeout,
   );

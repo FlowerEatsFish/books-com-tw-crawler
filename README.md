@@ -86,7 +86,7 @@ $ yarn start # npm start
 ```shell
 >>> You search data using keyword "春夏秋冬".
 
-[ {...}, {...}, ... ] # Array.prototype.length <= 24
+[ {...}, {...}, ... ] # Array.prototype.length <= 60
 ```
 
 ```shell
@@ -106,7 +106,7 @@ const result = await booksComTwCrawler(
   keyword, // string. Necessary.
            // If you set it as null, it will get an error.
   page, // number. Positive integer. Default: 1.
-        // Every page only shows maximum 24 results.
+        // Every page only shows maximum 60 results.
 );
 ```
 
