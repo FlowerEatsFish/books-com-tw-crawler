@@ -5,14 +5,11 @@ src/
 test/
 
 # hidden configs
-.editorconfig
-.eslintignore
-.eslintrc
 .gitignore
-.prettierrc
 
 # configs
 babel.config.js
+biome.json
 jest.config.js
 tsconfig.json
 yarn-error.log

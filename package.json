@@ -9,8 +9,8 @@
     "build": "tsc",
     "demo:js": "node ./lib/demo.js",
     "demo:ts": "ts-node ./src/demo.ts",
-    "lint": "eslint . -f stylish --ext .js --ext .ts",
-    "lint:fix": "eslint . -f stylish --ext .js --ext .ts --fix",
+    "lint": "biome lint .",
+    "lint:fix": "biome check --apply .",
     "test": "jest --coverage --silent"
   },
   "repository": "git@github.com:FlowerEatsFish/books-com-tw-crawler.git",
@@ -27,16 +27,11 @@
     "@babel/core": "^7.23.9",
     "@babel/preset-env": "^7.23.9",
     "@babel/preset-typescript": "^7.23.3",
+    "@biomejs/biome": "^1.5.3",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.19",
-    "@typescript-eslint/eslint-plugin": "^7.0.1",
-    "@typescript-eslint/parser": "^7.0.1",
     "babel-jest": "^29.7.0",
-    "eslint": "^8.56.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.1.3",
     "jest": "^29.7.0",
-    "prettier": "^3.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   }
