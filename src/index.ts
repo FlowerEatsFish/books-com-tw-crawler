@@ -3,7 +3,7 @@
  */
 
 import { BooksComTwCollectionFunction, DetailType } from "../index";
-import { collectionFetch, FetchResult } from "./books-com-tw-fetch";
+import { FetchResult, collectionFetch } from "./books-com-tw-fetch";
 import { itemListParser } from "./item-list-parser";
 
 const booksComTwCollection: BooksComTwCollectionFunction = async (

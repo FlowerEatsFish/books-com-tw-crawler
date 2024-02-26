@@ -1,6 +1,6 @@
 import HtmlCode_CompleteItems from "./samples/complete-items";
-import HtmlCode_IncompleteItem from "./samples/incomplete-item";
 import HtmlCode_EmptyItem from "./samples/empty-item";
+import HtmlCode_IncompleteItem from "./samples/incomplete-item";
 
 import { itemListParser } from "../item-list-parser";
 
