@@ -1,10 +1,12 @@
 # directories
 .github/
+.vscode/
 coverage/
 src/
 test/
 
 # hidden configs
+.editorconfig
 .gitignore
 
 # configs

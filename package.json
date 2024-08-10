@@ -1,6 +1,6 @@
 {
   "name": "books-com-tw-crawler",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "books.com.tw crawler",
   "main": "index.js",
   "typings": "index.d.ts",
@@ -13,8 +13,11 @@
     "lint:fix": "biome check --apply .",
     "test": "jest --coverage --silent"
   },
-  "repository": "git@github.com:FlowerEatsFish/books-com-tw-crawler.git",
-  "author": "Eating-Fish Flower",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/FlowerEatsFish/books-com-tw-crawler.git"
+  },
+  "author": "Chuyu Hua",
   "license": "MIT",
   "private": false,
   "keywords": [
