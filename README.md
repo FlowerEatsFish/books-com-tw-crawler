@@ -1,7 +1,7 @@
 # Books-com-tw Crawler
 
 [![NPM version](https://img.shields.io/npm/v/books-com-tw-crawler.svg)](https://www.npmjs.com/package/books-com-tw-crawler)
-[![Actions status](https://github.com/FlowerEatsFish/books-com-tw-crawler/workflows/build/badge.svg?branch=main)](https://github.com/FlowerEatsFish/books-com-tw-crawler/actions)
+[![Actions status](https://github.com/FlowerEatsFish/books-com-tw-crawler/actions/workflows/build-and-test.yml/badge.svg?branch=main)](https://github.com/FlowerEatsFish/books-com-tw-crawler/actions)
 [![Codecov status](https://codecov.io/gh/FlowerEatsFish/books-com-tw-crawler/branch/main/graph/badge.svg)](https://codecov.io/gh/FlowerEatsFish/books-com-tw-crawler/commits)
 [![Code style](https://img.shields.io/badge/code_style-biome-blue.svg)](https://biomejs.dev/)
 [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
