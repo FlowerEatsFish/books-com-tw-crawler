@@ -10,7 +10,7 @@
     "demo:js": "node ./lib/demo.js",
     "demo:ts": "ts-node ./src/demo.ts",
     "lint": "biome lint .",
-    "lint:fix": "biome check --apply .",
+    "lint:fix": "biome check --write .",
     "test": "jest --coverage --silent"
   },
   "repository": {
