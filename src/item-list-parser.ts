@@ -75,12 +75,13 @@ const getItemAuthor = (htmlCode: string): string[] | null => {
 
 const getItemPublisher = (htmlCode: string): string | null => {
   let result: string[] | null;
-  if (htmlCode.includes('target="_blank" rel="mid_publish"')) {
-    // For Chinese books
-    result = htmlCode.match(/<a target="_blank" rel="mid_publish"[\w\W]*?>[\w\W]*?<\/a>/gi);
-  } else {
-    // For Western books
-    result = htmlCode.match(/<a rel="mid_publish"[\w\W]*?>[\w\W]*?<\/a>/gi);
+
+  // For Chinese books
+  result = htmlCode.match(/<a\s+[^>]*?href="[^"]*?mid_publish\/pubid[^"]*?"[^>]*?>[\s\S]*?<\/a>/gi);
+
+  if (!result) {
+    // For Western (or other foreign) books
+    result = htmlCode.match(/<a\s+(?:target="_self"\s+)?rel="mid_publish"[^>]*?>[\s\S]*?<\/a>/gi);
   }
 
   if (result) {
