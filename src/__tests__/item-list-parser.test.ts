@@ -14,29 +14,30 @@ describe("item-list-parser", () => {
         author: null,
         imageUrl: "https://www.books.com.tw/img/001/085/63/0010856354.jpg",
         introduction:
-          "邁向大師之路 《The Pragmatic Programmer》是少數隨著歲月增長值得一讀再讀的經典書籍，無論您是新手還是實戰豐富的從業者，每次閱讀這本書，您都會得到新的領悟。 Dave Thomas和Andy Hunt於......",
+          "邁向大師之路 《The PragmaticProgrammer》是少數隨著歲月增長值得一讀再讀的經典書籍，無論您是新手還是實戰豐富的從業者，每次閱讀這本書，您都會得到新的領悟。Dave Thomas和Andy Hunt於......",
         price: {
-          currentPrice: 612,
-          discount: 9,
+          currentPrice: 537,
+          discount: 79,
         },
         publicationDate: "2020-04-30",
-        publisher: null,
-        title: "The Pragmatic Programmer 20週年紀念版",
-        url: "http://search.books.com.tw/redirect/move/key/the+pragmatic+programmer/area/mid/item/0010856354/page/1/idx/1/cat/001/pdf/1/spell/3",
+        publisher: "碁峰",
+        title: "The Pragmatic Programmer20週年紀念版",
+        url: "http://search.books.com.tw/redirect/move/key/The+Pragmatic+Programmer/area/mid/item/0010856354/page/1/idx/8/cat/001/pdf/1/spell/3",
       },
       {
         author: null,
-        imageUrl: "https://www.books.com.tw/img/F01/987/86/F019878686.jpg",
+        imageUrl: null,
         introduction:
-          "programming. In general, Ruby programmers tend to favor the the command line for running their code, and they tend to use text......",
+          "life. The Pragmatic Programmer forMachine Learning: Engineering Analytics and Data Science Solutionsdiscusses how modern......",
         price: {
-          currentPrice: null,
+          currentPrice: 3599,
           discount: null,
         },
-        publicationDate: "2023-10-24",
+        publicationDate: "2025-04-14",
         publisher: "Ingram",
-        title: "Programming Ruby 3.2: The Pragmatic Programmers’ Guide",
-        url: "http://search.books.com.tw/redirect/move/key/the+pragmatic+programmer/area/mid/item/F019878686/page/1/idx/2/cat/F01/pdf/0/spell/3",
+        title:
+          "ThePragmatic Programmer for MachineLearning: Engineering Analytics and Data Science Solutions",
+        url: "http://search.books.com.tw/redirect/move/key/The+Pragmatic+Programmer/area/mid/item/F019278385/page/1/idx/9/cat/F01/pdf/0/spell/3",
       },
     ];
     expect(output).toEqual(expected);
